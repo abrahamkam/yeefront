@@ -7,7 +7,7 @@ import{useState, useEffect} from 'react'
 
 const setWhiteProfile = (brightness, temperature) => {
   console.log("set white: "+brightness + " and "+temperature)
-  fetch('http://localhost:8080/createwhiteprofile', {method: 'POST', headers : {'Content-Type': 'application/json'},body : JSON.stringify({"brightness": brightness,"temperature":temperature})}).catch((error) => {console.log(error)})
+  fetch('http://16.170.233.168:8080/createwhiteprofile', {method: 'POST', headers : {'Content-Type': 'application/json'},body : JSON.stringify({"brightness": brightness,"temperature":temperature})}).catch((error) => {console.log(error)})
 }
 
 
@@ -15,10 +15,10 @@ const setWhiteProfile = (brightness, temperature) => {
 const setOnOff = (action) => {
   if(action == "on"){
     console.log(action)
-    fetch('http://localhost:8080/turnon', {method: 'POST'}).catch((error) => {console.log(error)})
+    fetch('http://16.170.233.168:8080/turnon', {method: 'POST'}).catch((error) => {console.log(error)})
   }else if(action == "off"){
     console.log(action)
-    fetch('http://localhost:8080/shutdown', {method: 'POST'}).catch((error) => {console.log(error)})
+    fetch('http://16.170.233.168:8080/shutdown', {method: 'POST'}).catch((error) => {console.log(error)})
   }
 }
 
@@ -50,7 +50,7 @@ useEffect(() => {
 }, [])
 
 const fetchProfiles = async () => {
-  const res = await fetch('http://localhost:8080/profiles', {method: 'GET'}).catch((error) => {console.log(error)})
+  const res = await fetch('http://16.170.233.168:8080/profiles', {method: 'GET'}).catch((error) => {console.log(error)})
   const data = res.json();
   return data;
 }
