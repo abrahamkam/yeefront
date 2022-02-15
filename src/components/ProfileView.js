@@ -1,12 +1,13 @@
 import React from 'react';
-import Profile from './Profile.js'
+//import Profile from './Profile.js'
+import ProfileCard from './ProfileCard.js'
 
  const ProfileView = ({profiles, setWhiteProfile, setOnOff}) => {
 
     return(
         <>
         {profiles.map((profile) => (
-            <Profile key={profile.name} profile={profile} setWhiteProfile = {setWhiteProfile}/>
+            <ProfileCard key={profile.name} profile={profile} setWhiteProfile = {setWhiteProfile}/>
         ))}
         </>
     )
